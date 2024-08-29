@@ -9,6 +9,7 @@ export default function Notebook() {
 
     const [mov,setMov] = useState('');
 
+    /*
     const checkWhatToPress = ()=>{
       const urlChack = document.URL.split('RenanBazininSite');
       const urlChackWithSlash = urlChack[1].split("/")
@@ -26,11 +27,11 @@ export default function Notebook() {
           AddUrl+="/"
       }
     }
-
+*/
     useEffect(()=>{
 
       dispatch({type:"CHANGE-SEC",payload:""})
-      checkWhatToPress()
+      //checkWhatToPress()
 
         if( localStorage.getItem('enter_id') ===process.env.REACT_APP_LOG_PASS || sessionStorage.getItem('enter_id')===process.env.REACT_APP_LOG_PASS)
         {
