@@ -65,7 +65,7 @@ function App() {
   useEffect(()=>{
 
     pullComments();
-    checkWhatToPress()
+    //checkWhatToPress()
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
     const ans = num1+num2;
@@ -94,6 +94,7 @@ function App() {
 
     }
 
+    /*
   const checkWhatToPress = ()=>{
     const urlChack = document.URL.split('RenanBazininSite');
     const urlChackWithSlash = urlChack[1].split("/")
@@ -109,7 +110,7 @@ function App() {
         AddUrl+="/"
     }
   }
-
+*/
 
   const delCom = async (id)=>{
     const delURLNew = herokuURL+id
