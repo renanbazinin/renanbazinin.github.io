@@ -31,8 +31,8 @@ export default function RenanBazinn() {
     }
   return (
     <div className="About" >
-      About Me: 
-        <div class="topnav" style={{"margin":0}} >
+ 
+        <div className="sub-nav" style={{"margin":0}}>
         <a href="#/RenanBazinin" className='a-pressed' >RenanBazinin</a>
         <a href="#/TimeLine" >TimeLine</a>
         </div>

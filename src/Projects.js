@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link ,useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import './App.css';
-
-import { useSelector } from "react-redux"
-
-import { useDispatch } from 'react-redux';
-
+import { useSelector, useDispatch } from "react-redux";
 
 const projects = [
   {
@@ -35,26 +31,14 @@ const projects = [
     story: "After I discharged from the army, I got a free course in fullstack. I learned advanced JavaScript, React, and NoSQL (using Mongo). The course project was to create a site for a manager who runs a movie-rental store. The site allows the manager to manage movies and subscribers. Because in Heroku the _id is changing, I temporarily gave all other users that will create all permissions. So don't create new users. Only create/edit members (subscribers). Also, you can edit/add movies.",
     link: 'https://github.com/renanbazinin/FinalFullStack-Movies-managage/'
   },
-  
 ];
 
-
-
 export default function Projects() {
-  
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  function goLeft() {
-    setCurrentIndex((currentIndex - 1 + projects.length) % projects.length);
-  }
-
-  function goRight() {
-    setCurrentIndex((currentIndex + 1) % projects.length);
-  }
-
   const dispatch = useDispatch();
+
   useEffect(() => {
-    function handleKeyDown(event) {
+    const handleKeyDown = (event) => {
       switch (event.key) {
         case 'ArrowLeft':
           goLeft();
@@ -65,7 +49,7 @@ export default function Projects() {
         default:
           break;
       }
-    }
+    };
 
     window.addEventListener('keydown', handleKeyDown);
 
@@ -73,35 +57,67 @@ export default function Projects() {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [currentIndex]);
+
   useEffect(() => {
+    dispatch({type:"CHANGE-SEC", payload:"Projects"});
+  }, [dispatch]);
 
+  const goLeft = () => {
+    setCurrentIndex((currentIndex - 1 + projects.length) % projects.length);
+  };
 
-    dispatch({type:"CHANGE-SEC",payload:"Projects"})
-  }, []);
+  const goRight = () => {
+    setCurrentIndex((currentIndex + 1) % projects.length);
+  };
 
-  const storeData = useSelector(store => { return store })
-    const navigate = useNavigate()
+  const selectProject = (index) => {
+    setCurrentIndex(index);
+  };
+
   return (
-    <div style={{"backgroundColor":"#252525","marginLeft":"10%","marginRight":"10%"}}>
+    <div className='proSpe' style={{backgroundColor: "#252525"}}>
       <h1>Projects</h1>
+      
+      {/* Submenu for Projects */}
+      <div className="project-submenu">
+        {projects.map((project, index) => (
+          <button 
+            key={index} 
+            className={index === currentIndex ? 'submenu-active' : ''}
+            onClick={() => selectProject(index)}
+          >
+            {project.title}
+          </button>
+        ))}
+      </div>
+
       <div className='project-display'>
-        <img src="https://www.freeiconspng.com/thumbs/arrow-icon/right-arrow-icon-27.png" alt="Left" onClick={goLeft}    style={{ transform: "rotate(180deg)" , width:"4%" }} />
+        <img 
+          src="https://www.freeiconspng.com/thumbs/arrow-icon/right-arrow-icon-27.png" 
+          alt="Left" 
+          onClick={goLeft} 
+          style={{ transform: "rotate(180deg)", width:"4%" }} 
+        />
         <span>Showing project number {currentIndex + 1} of {projects.length}</span>
-        <img src="https://www.freeiconspng.com/thumbs/arrow-icon/right-arrow-icon-27.png" alt="Right" onClick={goRight} style={{width:"4%" }}/>
+        <img 
+          src="https://www.freeiconspng.com/thumbs/arrow-icon/right-arrow-icon-27.png" 
+          alt="Right" 
+          onClick={goRight} 
+          style={{width:"4%" }} 
+        />
         <div className='project'>
           <h5>{projects[currentIndex].title}</h5>
           <a href={projects[currentIndex].link} target="_blank" rel="noopener noreferrer">
-          <img src={projects[currentIndex].image} style={{width:"100px"}}/>
-           </a>     
-           <br/> <br/> <br/> <br/> 
-           <div className='About'>
+            <img src={projects[currentIndex].image} style={{width:"100px"}} alt={projects[currentIndex].title} />
+          </a>     
+          <br/> <br/> <br/> <br/> 
+          <div className='About'>
             <strong>short:</strong> {projects[currentIndex].short}
             <br/><br/> 
             <strong>Story:</strong> {projects[currentIndex].story}
           </div>
-          <button onClick={()=>{window.open(projects[currentIndex].link,'_blank');}}>Go To Site</button>
+          <button onClick={() => window.open(projects[currentIndex].link, '_blank')}>Go To Site</button>
         </div>
-      
       </div>
     </div>
   );

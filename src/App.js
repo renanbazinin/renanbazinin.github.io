@@ -187,11 +187,11 @@ function App() {
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         crossOrigin="anonymous"
       />
-      <h1>Renan The Student <a href="#/RenanBazinin" > <img src='https://i.imgur.com/Eb5gEmq.png' style={{width:"30px"}}/></a></h1>
-     
-      <div className='About'>
+      <h1>Renan The Student </h1>
+      {/*<a href="#/RenanBazinin" > <img src='https://i.imgur.com/Eb5gEmq.png' style={{width:"30px"}}/></a>*/}
+      { /*<div className='About'>
         
-        <select 
+       <select 
         onChange={(e)=>{toggleLang(e)}}
         style={{
           backgroundColor: "#252525",
@@ -206,15 +206,14 @@ function App() {
         <option defaultValue >English</option>
         <option>עברית</option>
       </select>
-
-        </div>
-      <div class="topnav">
-        <a href="#/RenanBazinin" onClick={handleNav}> About Me</a>
-        <a href="#/Projects"  onClick={handleNav}>Projects</a>
-        <a href="#/Guess"  onClick={handleNav}>Guess The Sub (Reddit)</a>
-        <a href="#/ReddiAPIFUN"  onClick={handleNav}>Top 10 (Reddit)</a>
-        <a href="#/Notebook" onClick={handleNav}>המחברת של רנן</a>
         
+        </div>*/}
+      <div className="main-nav">
+        <a href="#/RenanBazinin" onClick={handleNav}> About Me</a>
+        <a href="#/Projects" onClick={handleNav}>Projects</a>
+        {/*<a href="#/Guess" onClick={handleNav}>Guess The Sub (Reddit)</a>
+        <a href="#/ReddiAPIFUN" onClick={handleNav}>Top 10 (Reddit)</a>*/}
+        <a href="#/Notebook" onClick={handleNav}>המחברת של רנן</a>
       </div>
       
 
