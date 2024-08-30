@@ -120,17 +120,18 @@ export default function TimeLine() {
     const  lang  = "en";
   return (
 
+<div>
+<div class="sub-nav"   >
+          <a href="#/RenanBazinin"  >RenanBazinin</a>
+          <a href="#/TimeLine" className='a-pressed'>TimeLine</a>
+          </div>
+  <div className="About" >
 
-<div className="About" >
-        <div class="sub-nav"  style={{"margin":0}} >
-        <a href="#/RenanBazinin"  >RenanBazinin</a>
-        <a href="#/TimeLine" className='a-pressed'>TimeLine</a>
-        </div>
-        {storeData.lang==="en"?dataEnglish:dataHebraw}
+          {storeData.lang==="en"?dataEnglish:dataHebraw}
 
 
-    </div>
-
+      </div>
+  </div>
     
   )
 }

@@ -130,7 +130,8 @@ a:hover, .NormalLink:hover {
   padding: 0;
   background-color: #333;
   overflow: hidden;
-  width: calc(100%);
+  margin: 0 10%;
+
   position: sticky;
   top: 50px; /* Align it right below the main nav */
   z-index: 999;
