@@ -12,6 +12,13 @@ const projects = [
     link: 'https://renanbazinin.github.io/Anamnezatron1/'
   },
   {
+    title: "Graphs For Algorithms",
+    image: 'https://i.imgur.com/WxVJGnE.png',
+    short: "graph visualization tool that supports interactive algorithms like BFS, DFS, and topological sort with real-time user input and customizable graph structures.",
+    story: "I created this project to help me better understand graphs and their algorithms while studying this course at MTA. I find it really cool to see the algorithms in action on real graphs and in real-time.",
+    link: 'https://renanbazinin.github.io/Graphs-For-Algorithms/'
+  },
+  {
     title: "FreeTV",
     short: "Site the show the free Channels I found, mostly the basic channels from Israel",
     link: 'https://renanbazinin.github.io/myTV',

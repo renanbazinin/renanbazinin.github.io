@@ -31,7 +31,7 @@ export default function RenanBazinn() {
       <div className="About">
         {storeData.lang === "en" ? "" : "עוד לא כתבתי בעברית"}
         <h2 className="profile-title">Renan Bazinin</h2>
-        <p className="profile-intro">I'm a new student to computer science. I have always had a passion for computers.</p>
+        <p className="profile-intro">I'm a student to computer science. I have always had a passion for computers.</p>
         <div className="profile-section">
           <h4 className="section-title">Points about me</h4>
           <ul className="section-list">

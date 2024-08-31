@@ -122,7 +122,7 @@ export default function TimeLine() {
 
 <div>
 <div class="sub-nav"   >
-          <a href="#/RenanBazinin"  >RenanBazinin</a>
+          <a href="#/RenanBazinin"  >Renan Bazinin</a>
           <a href="#/TimeLine" className='a-pressed'>TimeLine</a>
           </div>
   <div className="About" >

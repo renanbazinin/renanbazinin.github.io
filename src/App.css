@@ -177,7 +177,7 @@ a:hover, .NormalLink:hover {
 }
 
 .main-nav a:active, .sub-nav a:active, .a-pressed {
-  background-color: #1A1A1B;
+  background-color: #2A2A2A;
   color: white;
 }
 
