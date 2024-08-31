@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import './renan.css'
 import RenanBazinn from './RenanBazinn';
 import Projects from './Projects';
 import TimeLine from  './TimeLine'
