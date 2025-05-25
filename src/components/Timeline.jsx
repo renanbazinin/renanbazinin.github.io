@@ -280,11 +280,11 @@ const Timeline = () => {
             and contribute to meaningful solutions in the tech world.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="/projects" className="btn btn-primary">
+            <a href="#/projects" className="btn btn-primary">
               <Award size={20} style={{ marginRight: '0.5rem' }} />
               View My Projects
             </a>
-            <a href="/about" className="btn btn-secondary">
+            <a href="#/about" className="btn btn-secondary">
               <MapPin size={20} style={{ marginRight: '0.5rem' }} />
               Learn More About Me
             </a>

@@ -107,6 +107,86 @@ const Projects = () => {
     setSelectedProject(null);
   };
 
+  // Mobile responsive styles
+  const mobileStyles = `
+    @media (max-width: 768px) {
+      .project-buttons {
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+      }
+      
+      .project-buttons .btn {
+        width: 100% !important;
+        min-width: auto !important;
+      }
+      
+      .project-card {
+        margin: 0 0.5rem;
+      }
+      
+      .project-modal {
+        padding: 1rem !important;
+        margin: 0 0.5rem !important;
+      }
+      
+      .project-modal h2 {
+        font-size: 1.5rem !important;
+      }
+      
+      .filter-buttons {
+        justify-content: center !important;
+        padding: 0 1rem;
+      }
+      
+      .filter-buttons button {
+        padding: 0.4rem 1rem !important;
+        font-size: 0.8rem !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .project-modal {
+        padding: 1rem !important;
+        max-width: 95vw !important;
+      }
+      
+      .project-modal h2 {
+        font-size: 1.25rem !important;
+        line-height: 1.3;
+      }
+      
+      .filter-buttons {
+        gap: 0.25rem !important;
+        flex-wrap: wrap;
+      }
+      
+      .filter-buttons button {
+        padding: 0.3rem 0.8rem !important;
+        font-size: 0.75rem !important;
+      }
+      
+      .project-buttons {
+        gap: 0.4rem !important;
+      }
+      
+      .project-buttons .btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.8rem !important;
+      }
+    }
+  `;
+
+  // Add styles to head
+  React.useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = mobileStyles;
+    document.head.appendChild(styleElement);
+    
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
+
   return (
     <div className="section" style={{ paddingTop: '6rem' }}>
       <div className="container">
@@ -123,8 +203,7 @@ const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Category Filter */}
-        <motion.div 
+        {/* Category Filter */}        <motion.div 
           style={{ 
             display: 'flex', 
             justifyContent: 'center', 
@@ -132,6 +211,7 @@ const Projects = () => {
             flexWrap: 'wrap',
             gap: '0.5rem'
           }}
+          className="filter-buttons"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -170,10 +250,9 @@ const Projects = () => {
         >
           <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: 'var(--text-primary)' }}>
             Featured Projects
-          </h2>
-          <div style={{ 
+          </h2>          <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))', 
             gap: '2rem' 
           }}>
             {filteredProjects.filter(p => p.featured).map((project, index) => (
@@ -261,7 +340,7 @@ const Projects = () => {
                         {tech}
                       </span>
                     ))}
-                  </div>                    <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                  </div>                    <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }} className="project-buttons">
                     <a 
                       href={project.link} 
                       target="_blank" 
@@ -350,10 +429,9 @@ const Projects = () => {
           >
             <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: 'var(--text-primary)' }}>
               Other Projects
-            </h2>
-            <div style={{ 
+            </h2>            <div style={{ 
               display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
+              gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', 
               gap: '1.5rem' 
             }}>
               {filteredProjects.filter(p => !p.featured).map((project, index) => (
@@ -428,7 +506,7 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }} className="project-buttons">
                     <a 
                       href={project.link} 
                       target="_blank" 
@@ -480,16 +558,16 @@ const Projects = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeProjectModal}
-          >
-            <motion.div
+          >            <motion.div
               style={{
                 background: 'var(--surface-elevated)',
                 borderRadius: '1rem',
                 padding: '2rem',
-                maxWidth: '600px',
-                maxHeight: '80vh',
+                maxWidth: 'min(600px, 90vw)',
+                maxHeight: '85vh',
                 overflow: 'auto',
-                position: 'relative'
+                position: 'relative',
+                margin: '0 1rem'
               }}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
