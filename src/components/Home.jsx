@@ -64,9 +64,7 @@ const Home = () => {
               About Me
             </Link>
           </motion.div>
-        </div>
-
-        <motion.div 
+        </div>        <motion.div 
           className="scroll-indicator"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -78,6 +76,12 @@ const Home = () => {
             transform: 'translateX(-50%)',
             color: 'white',
             cursor: 'pointer'
+          }}
+          onClick={() => {
+            const nextSection = document.querySelector('.section');
+            if (nextSection) {
+              nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
           }}
         >
           <ChevronDown size={32} className="animate-bounce" />
