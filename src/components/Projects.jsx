@@ -139,10 +139,8 @@ const Projects = () => {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setSelectedCategory(category)}
-              style={{
+              onClick={() => setSelectedCategory(category)}              style={{
                 padding: '0.5rem 1.5rem',
-                border: 'none',
                 borderRadius: '2rem',
                 background: selectedCategory === category 
                   ? 'var(--gradient-primary)' 
@@ -153,7 +151,9 @@ const Projects = () => {
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
                 fontWeight: '500',
-                border: '1px solid var(--border)'
+                border: selectedCategory === category 
+                  ? 'none' 
+                  : '1px solid var(--border)'
               }}
             >
               {category}
