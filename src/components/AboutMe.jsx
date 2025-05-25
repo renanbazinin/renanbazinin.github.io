@@ -57,15 +57,17 @@ const AboutMe = () => {
           <p className="section-subtitle" style={{ fontSize: '1.3rem', marginBottom: '2rem' }}>
             I'm a student of computer science. I have always had a passion for computers.
           </p>
-        </motion.div>
-
-        {/* Main Content Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))', gap: '3rem', marginBottom: '4rem' }}>
-          {/* About Me Section */}
+        </motion.div>        {/* Main Content Grid */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+          gap: '2rem', 
+          marginBottom: '4rem' 
+        }}>          {/* About Me Section */}
           <motion.div
             style={{
               background: 'var(--surface-elevated)',
-              padding: '2.5rem',
+              padding: '1.5rem',
               borderRadius: '1rem',
               boxShadow: 'var(--shadow-lg)',
               border: '1px solid var(--border)'
@@ -104,13 +106,11 @@ const AboutMe = () => {
                 Second year at MTA (Academic Tel Aviv Yafo).
               </li>
             </ul>
-          </motion.div>
-
-          {/* Skills Section */}
+          </motion.div>          {/* Skills Section */}
           <motion.div
             style={{
               background: 'var(--surface-elevated)',
-              padding: '2.5rem',
+              padding: '1.5rem',
               borderRadius: '1rem',
               boxShadow: 'var(--shadow-lg)',
               border: '1px solid var(--border)'
@@ -176,10 +176,9 @@ const AboutMe = () => {
           <h3 style={{ textAlign: 'center', marginBottom: '2rem', fontSize: '2rem', color: 'var(--text-primary)' }}>
             Key Achievements
           </h3>
-          
-          <div style={{ 
+            <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
             gap: '1.5rem' 
           }}>
             {achievements.map((achievement, index) => (
@@ -228,14 +227,12 @@ const AboutMe = () => {
               </motion.div>
             ))}
           </div>
-        </motion.div>
-
-        {/* Call to Action */}
+        </motion.div>        {/* Call to Action */}
         <motion.div
           style={{ 
             textAlign: 'center', 
             marginTop: '4rem',
-            padding: '3rem',
+            padding: '2rem 1rem',
             background: 'linear-gradient(135deg, var(--primary-color), var(--secondary-color))',
             borderRadius: '1rem',
             color: 'white'

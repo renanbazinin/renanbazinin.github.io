@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Award, Briefcase, GraduationCap, Heart, Star, Users } from 'lucide-react';
 
 const Timeline = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const timelineEvents = [
     {
       year: '1998',
@@ -86,19 +98,17 @@ const Timeline = () => {
           <p className="section-subtitle">
             A timeline of experiences, growth, and achievements that shaped who I am today.
           </p>
-        </motion.div>
-
-        {/* Timeline */}
+        </motion.div>        {/* Timeline */}
         <div style={{ position: 'relative', maxWidth: '1000px', margin: '0 auto' }}>
           {/* Timeline Line */}
           <div style={{
             position: 'absolute',
-            left: '50%',
+            left: isMobile ? '30px' : '50%',
             top: 0,
             bottom: 0,
             width: '4px',
             background: 'linear-gradient(180deg, var(--primary-color), var(--secondary-color), var(--accent-color))',
-            transform: 'translateX(-50%)',
+            transform: isMobile ? 'none' : 'translateX(-50%)',
             borderRadius: '2px'
           }} />
 
@@ -107,25 +117,25 @@ const Timeline = () => {
               key={index}
               style={{
                 position: 'relative',
-                marginBottom: '4rem',
+                marginBottom: '3rem',
                 display: 'flex',
-                alignItems: 'center',
-                flexDirection: index % 2 === 0 ? 'row' : 'row-reverse'
+                alignItems: isMobile ? 'flex-start' : 'center',
+                flexDirection: isMobile ? 'row' : (index % 2 === 0 ? 'row' : 'row-reverse'),
+                paddingLeft: isMobile ? '70px' : '0'
               }}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              initial={{ opacity: 0, x: isMobile ? -30 : (index % 2 === 0 ? -50 : 50) }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-            >
-              {/* Content Card */}
+            >              {/* Content Card */}
               <div style={{
                 flex: 1,
-                maxWidth: '450px',
-                margin: index % 2 === 0 ? '0 2rem 0 0' : '0 0 0 2rem'
-              }}>
-                <motion.div
+                maxWidth: isMobile ? 'none' : '450px',
+                margin: isMobile ? '0' : (index % 2 === 0 ? '0 2rem 0 0' : '0 0 0 2rem'),
+                width: isMobile ? '100%' : 'auto'
+              }}>                <motion.div
                   style={{
                     background: 'var(--surface-elevated)',
-                    padding: '2rem',
+                    padding: isMobile ? '1.5rem' : '2rem',
                     borderRadius: '1rem',
                     boxShadow: 'var(--shadow-lg)',
                     border: '1px solid var(--border)',
@@ -136,18 +146,19 @@ const Timeline = () => {
                     boxShadow: 'var(--shadow-xl)',
                     transition: { duration: 0.3 }
                   }}
-                >
-                  {/* Arrow */}
-                  <div style={{
-                    position: 'absolute',
-                    top: '2rem',
-                    [index % 2 === 0 ? 'right' : 'left']: '-10px',
-                    width: 0,
-                    height: 0,
-                    borderTop: '10px solid transparent',
-                    borderBottom: '10px solid transparent',
-                    [index % 2 === 0 ? 'borderLeft' : 'borderRight']: '10px solid var(--surface-elevated)'
-                  }} />
+                >                  {/* Arrow - Hidden on mobile */}
+                  {!isMobile && (
+                    <div style={{
+                      position: 'absolute',
+                      top: '2rem',
+                      [index % 2 === 0 ? 'right' : 'left']: '-10px',
+                      width: 0,
+                      height: 0,
+                      borderTop: '10px solid transparent',
+                      borderBottom: '10px solid transparent',
+                      [index % 2 === 0 ? 'borderLeft' : 'borderRight']: '10px solid var(--surface-elevated)'
+                    }} />
+                  )}
 
                   {/* Year Badge */}
                   <div style={{
@@ -233,15 +244,14 @@ const Timeline = () => {
                     </div>
                   )}
                 </motion.div>
-              </div>
-
-              {/* Center Icon */}
+              </div>              {/* Center Icon */}
               <div style={{
                 position: 'absolute',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: '60px',
-                height: '60px',
+                left: isMobile ? '30px' : '50%',
+                transform: isMobile ? 'translateX(-50%)' : 'translateX(-50%)',
+                top: isMobile ? '1rem' : 'auto',
+                width: isMobile ? '50px' : '60px',
+                height: isMobile ? '50px' : '60px',
                 borderRadius: '50%',
                 background: 'var(--surface-elevated)',
                 border: `4px solid ${event.color}`,
@@ -252,18 +262,16 @@ const Timeline = () => {
                 boxShadow: 'var(--shadow-md)',
                 zIndex: 10
               }}>
-                {event.icon}
+                {React.cloneElement(event.icon, { size: isMobile ? 16 : 20 })}
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* Bottom CTA */}
+        </div>        {/* Bottom CTA */}
         <motion.div
           style={{
             textAlign: 'center',
             marginTop: '4rem',
-            padding: '3rem',
+            padding: isMobile ? '2rem 1rem' : '3rem',
             background: 'var(--surface-elevated)',
             borderRadius: '1rem',
             border: '1px solid var(--border)'

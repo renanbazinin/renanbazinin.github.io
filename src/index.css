@@ -216,6 +216,42 @@ a:hover {
     padding: 0.6rem 1.2rem;
     font-size: 0.875rem;
   }
+  
+  /* Timeline specific mobile styles */
+  .timeline-mobile {
+    padding-left: 70px !important;
+  }
+  
+  .timeline-icon-mobile {
+    left: 30px !important;
+    transform: translateX(-50%) !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  /* AboutMe component mobile styles */
+  .about-grid-mobile {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .about-card-mobile {
+    padding: 1.5rem !important;
+  }
+  
+  .achievements-grid-mobile {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  /* General mobile typography improvements */
+  .section-title {
+    font-size: 2.5rem !important;
+  }
+  
+  .section-subtitle {
+    font-size: 1.1rem !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -236,6 +272,24 @@ a:hover {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
     min-width: auto;
+  }
+  
+  /* Extra small mobile styles */
+  .timeline-icon-mobile {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .about-card-mobile {
+    padding: 1rem !important;
+  }
+  
+  .section-title {
+    font-size: 2rem !important;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem !important;
   }
 }
 
