@@ -261,8 +261,7 @@ const Projects = () => {
                         {tech}
                       </span>
                     ))}
-                  </div>
-                    <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                  </div>                    <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
                     <a 
                       href={project.link} 
                       target="_blank" 
@@ -274,6 +273,20 @@ const Projects = () => {
                       <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
                       View Live
                     </a>
+                    
+                    {project.linkGithub && (
+                      <a 
+                        href={project.linkGithub} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary"
+                        style={{ fontSize: '0.875rem', padding: '0.5rem 1rem' }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github size={16} style={{ marginRight: '0.5rem' }} />
+                        GitHub
+                      </a>
+                    )}
                     
                     {project.linkDemo && (
                       <a 
@@ -415,18 +428,32 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>
-                  
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                    style={{ fontSize: '0.875rem', padding: '0.5rem 1rem', width: '100%' }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
-                    View Project
-                  </a>
+                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="btn btn-primary"
+                      style={{ fontSize: '0.875rem', padding: '0.5rem 1rem', flex: '1' }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
+                      View Project
+                    </a>
+                    
+                    {project.linkGithub && (
+                      <a 
+                        href={project.linkGithub} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="btn btn-secondary"
+                        style={{ fontSize: '0.875rem', padding: '0.5rem 1rem' }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Github size={16} />
+                      </a>
+                    )}
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -532,8 +559,7 @@ const Projects = () => {
                     {tech}
                   </span>
                 ))}
-              </div>
-                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              </div>                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <a 
                   href={selectedProject.link} 
                   target="_blank" 
@@ -543,6 +569,18 @@ const Projects = () => {
                   <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
                   View Live
                 </a>
+                
+                {selectedProject.linkGithub && (
+                  <a 
+                    href={selectedProject.linkGithub} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary"
+                  >
+                    <Github size={16} style={{ marginRight: '0.5rem' }} />
+                    GitHub
+                  </a>
+                )}
                 
                 {selectedProject.linkDemo && (
                   <a 
