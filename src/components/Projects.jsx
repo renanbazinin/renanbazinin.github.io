@@ -64,7 +64,8 @@ const Projects = () => {
       linkGithub: 'https://github.com/renanbazinin/allNews',
       linkGooglePlay: 'https://play.google.com/store/apps/details?id=com.rssallnews.allnews',
       technologies: ['RSS Feeds', 'JavaScript', 'API Integration'],
-      category: 'News'
+      category: 'News',
+      featured: true
     },
     {
       id: 5,      title: "FullStack Course Project",
@@ -75,7 +76,7 @@ const Projects = () => {
       linkGithub: 'https://github.com/renanbazinin/FinalFullStack-Movies-managage/',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
       category: 'Full-Stack',
-      featured: true
+      featured: false
     },
     {
       id: 6,      title: "Active Hue - Versatile Timer App",
@@ -88,7 +89,7 @@ const Projects = () => {
       linkGooglePlay: 'https://play.google.com/store/apps/details?id=com.graphs.activehue',
       technologies: ['React', 'Responsive Design'],
       category: 'Productivity',
-      featured: true
+      featured: false
     }
   ];
 
