@@ -212,6 +212,7 @@ const Home = () => {
               <Github size={20} style={{ marginRight: '0.5rem' }} />
               GitHub
             </a>
+            {/* weird here... */}
             <a href="https:/linkedin.com/in/renan-bazinin-404590108" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
               <Linkedin size={20} style={{ marginRight: '0.5rem' }} />
               LinkedIn
