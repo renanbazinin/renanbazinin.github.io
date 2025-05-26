@@ -203,8 +203,7 @@ const Home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-          >
-            <a href="mailto:renanbazinin@gmail.com" className="btn btn-primary">
+          >            <a href="mailto:renanbazinin@gmail.com" className="btn btn-primary">
               <Mail size={20} style={{ marginRight: '0.5rem' }} />
               Get In Touch
             </a>
@@ -212,8 +211,7 @@ const Home = () => {
               <Github size={20} style={{ marginRight: '0.5rem' }} />
               GitHub
             </a>
-            {/* weird here... */}
-            <a href="https:/linkedin.com/in/renan-bazinin-404590108" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+            <a href="https://linkedin.com/in/renan-bazinin-404590108" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
               <Linkedin size={20} style={{ marginRight: '0.5rem' }} />
               LinkedIn
             </a>
