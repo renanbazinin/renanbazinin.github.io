@@ -39,7 +39,7 @@ const AboutMe = () => {
     {
       icon: <Star size={24} />,
       title: 'Academic Achievement',
-      description: 'Second year at MTA (Academic Tel Aviv Yafo) in Computer Science'
+      description: 'Third year at MTA (Academic Tel Aviv Yafo) in Computer Science'
     }
   ];
 
@@ -103,7 +103,7 @@ const AboutMe = () => {
                 </a>.
               </li>
               <li style={{ paddingLeft: '1rem', borderLeft: '3px solid var(--primary-color)', color: 'var(--text-secondary)' }}>
-                Second year at MTA (Academic Tel Aviv Yafo).
+                Third year at MTA (Academic Tel Aviv Yafo).
               </li>
             </ul>
           </motion.div>          {/* Skills Section */}

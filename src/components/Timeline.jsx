@@ -75,7 +75,7 @@ const Timeline = () => {
       icon: <Users size={20} />,
       description: 'Currently pursuing my degree in Computer Science.',
       details: [
-        'Second year at MTA',
+        'Third year at MTA',
         'Focusing on algorithms and data structures',
         'Exploring web development and data science',
         'Building innovative projects'

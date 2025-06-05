@@ -39,7 +39,7 @@ export default function RenanBazinn() {
             <li>In high school I participated in many Hackathons - second prize in one of them.</li>
             <li>I am still open to everything in this field. I like Web-Development, Algorithmics and hope to gain enough mathematical theory to explore the data science world.</li>
             <li>My project in software engineering was -"Discover the author of an anonymous book by data of many other books and authors", inspired by this <a className='NormalLink' href='https://languagelog.ldc.upenn.edu/nll/?p=5315'>Article</a>.</li>             
-            <li>Second year at MTA (Academic Tel Aviv Yafo).</li>
+            <li>Third year at MTA (Academic Tel Aviv Yafo).</li>
           </ul>
         </div>
         <div className="profile-section">
