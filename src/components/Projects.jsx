@@ -22,7 +22,7 @@ const Projects = () => {
     },  
     {
       id: 2,
-      title: "News Fetcher",
+      title: "All News",
       icon: <Globe size={24} />,
       image: 'https://i.imgur.com/y6Zos1q.png',
       short: "News aggregation from famous sites",
@@ -34,7 +34,22 @@ const Projects = () => {
       category: 'News',
       featured: true
     },  
-    {      id: 3,
+    {
+      id: 3,
+      title: "MNIST - Digit Recognition",
+      icon: <Eye size={24} />,
+      image: 'https://i.imgur.com/kNKbeJu.png',
+      short: "Handwritten digit recognition using neural networks built from scratch in NumPy, achieving 98.41% test accuracy with client-side React interface.",
+      story: "Final project for my Intro to Machine Learning course at MTA (Academic Tel Aviv Yafo). This project showcases the complete machine learning pipeline from theory to deployment. We built a MNIST neural network classifier entirely from scratch using only NumPy, without relying on high-level ML frameworks. The challenge was to understand and implement every aspect of neural networks - from forward propagation and backpropagation to optimization algorithms. After achieving a clean test accuracy of 98.41%, I exported the trained model to ONNX format and created a React-based web application that performs digit recognition entirely client-side. The app includes sophisticated preprocessing to handle user-drawn digits, making the ML model accessible and interactive for anyone to try. This project demonstrates both deep understanding of machine learning fundamentals and the ability to create user-friendly applications that make AI accessible.",
+      link: 'https://renanbazinin.github.io/MNIST-Client-Side/',
+      linkGithub: 'https://github.com/renanbazinin/MNIST-Client-Side',
+      technologies: ['Python', 'NumPy', 'ONNX', 'React', 'Canvas API', 'Neural Networks', 'Machine Learning'],
+      category: 'AI/ML',
+      featured: true,
+      research: true,
+      academicProject: "Final project for Intro to Machine Learning course at MTA Academic College - 98.41% accuracy"
+    },
+    {      id: 4,
       title: "Graphs For Algorithms",
       icon: <Code size={24} />,
       image: 'https://i.imgur.com/WxVJGnE.png',
@@ -46,7 +61,7 @@ const Projects = () => {
       technologies: ['JavaScript', 'Canvas API', 'Graph Theory', 'Algorithms'],
       category: 'Education',
       featured: true    },    {
-      id: 4,
+      id: 5,
       title: "FreeTV",
       icon: <Tv size={24} />,
       short: "Site that shows free channels I found, mostly the basic channels from Israel",
@@ -57,7 +72,7 @@ const Projects = () => {
       category: 'Entertainment'
     },    
     {
-      id: 4,
+      id: 6,
       title: "Anamenztron",
       icon: <Heart size={24} />,
       image: 'https://renanbazinin.github.io/Anamnezatron1/images/anamnaz1high.png',
@@ -70,7 +85,8 @@ const Projects = () => {
       featured: true
     },
     {
-      id: 5,      title: "FullStack Course Project",
+      id: 7,
+      title: "FullStack Course Project",
       icon: <TrendingUp size={24} />,
       short: "Site destined for managers who run movie-rental stores (like BlockBuster)",
       story: "After I discharged from the army, I got a free course in fullstack. I learned advanced JavaScript, React, and NoSQL (using Mongo). The course project was to create a site for a manager who runs a movie-rental store. The site allows the manager to manage movies and subscribers. Because in Heroku the _id is changing, I temporarily gave all other users that will create all permissions. So don't create new users. Only create/edit members (subscribers). Also, you can edit/add movies.",
@@ -81,7 +97,8 @@ const Projects = () => {
       featured: false
     },
     {
-      id: 6,      title: "Active Hue - Versatile Timer App",
+      id: 8,
+      title: "Active Hue - Versatile Timer App",
       icon: <Timer size={24} />,
       short: "A multi-purpose timer app designed for workouts, study sessions, and focus intervals with customizable settings and vibrant color-coded visual feedback.",
       story: "Active Hue was built to provide users with an intuitive, customizable timer solution for a variety of activities. Whether you're engaging in high-intensity workouts, studying for an exam, or taking focused breaks, Active Hue adapts to your needs. The app offers both pre-configured quick timers for common activities and fully customizable timers, allowing users to set their own active, rest, and switch periods. With a sleek design, responsive layout, and always-on-screen functionality, Active Hue ensures that you stay on track without interruption.",
