@@ -84,7 +84,7 @@ const Timeline = () => {
     },
     {
       year: '2025',
-      title: '🏆 2x Award-WinnerConference',
+      title: '🏆 2x Award-Winner Conference',
       subtitle: 'FocusFlow Project Achievements',
       icon: <Award size={20} />,
       description: 'Presented our award-winning project, FocusFlow, at the AI-ED 2025 conference in Italy. This project, which transforms video lectures into interactive learning experiences, won first place at both the ACM SYSTOR 2025 conference and the annual projects conference at The Academic College of Tel Aviv-Yaffo.',
