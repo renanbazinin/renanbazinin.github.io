@@ -81,6 +81,21 @@ const Timeline = () => {
         'Building innovative projects'
       ],
       color: 'var(--secondary-color)'
+    },
+    {
+      year: '2025',
+      title: '🏆 2x Award-WinnerConference',
+      subtitle: 'FocusFlow Project Achievements',
+      icon: <Award size={20} />,
+      description: 'Presented our award-winning project, FocusFlow, at the AI-ED 2025 conference in Italy. This project, which transforms video lectures into interactive learning experiences, won first place at both the ACM SYSTOR 2025 conference and the annual projects conference at The Academic College of Tel Aviv-Yaffo.',
+      details: [
+        "1st Place - ACM SYSTOR 2025 Conference",
+        "1st Place - Annual Projects Conference, The Academic College of Tel Aviv-Yaffo",
+        "Presented at AI-ED 2025 Conference, Italy",
+        "Co-authored with Alona Gatker and Jonatan Shaya",
+        "Supervised by Dr. Sarel Cohen"
+      ],
+      color: 'var(--accent-color)'
     }
   ];
 
