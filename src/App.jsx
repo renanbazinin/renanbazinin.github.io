@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Projects from './components/Projects';
@@ -9,25 +9,38 @@ import './App.css';
 
 function App() {
   const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const isActive = (path) => {
     return location.pathname === path;
   };
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <div className="App">
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-logo">
-            <Link to="/">RB</Link>
+            <Link to="/" onClick={() => setMenuOpen(false)}>RB</Link>
           </div>
-          <ul className="nav-links">
-            <li><Link to="/" className={isActive('/') ? 'active' : ''}>Home</Link></li>
-            <li><Link to="/projects" className={isActive('/projects') ? 'active' : ''}>Projects</Link></li>
-            <li><Link to="/timeline" className={isActive('/timeline') ? 'active' : ''}>Timeline</Link></li>
-            <li><Link to="/about" className={isActive('/about') ? 'active' : ''}>About Me</Link></li>
+          <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+            <li><Link to="/" className={isActive('/') ? 'active' : ''} onClick={() => setMenuOpen(false)}>Home</Link></li>
+            <li><Link to="/projects" className={isActive('/projects') ? 'active' : ''} onClick={() => setMenuOpen(false)}>Projects</Link></li>
+            <li><Link to="/timeline" className={isActive('/timeline') ? 'active' : ''} onClick={() => setMenuOpen(false)}>Timeline</Link></li>
+            <li><Link to="/about" className={isActive('/about') ? 'active' : ''} onClick={() => setMenuOpen(false)}>About Me</Link></li>
           </ul>
-          <button className="mobile-menu-btn">☰</button>
+          <button
+            className="mobile-menu-btn"
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? '×' : '☰'}
+          </button>
         </div>
       </nav>
 
@@ -50,7 +63,7 @@ function App() {
 
       <footer className="footer">
         <div className="container">
-          <p>&copy; 2024 Renan Bazinin. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Renan Bazinin. All rights reserved.</p>
         </div>
       </footer>
     </div>

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Play, Smartphone, Code, Heart, TrendingUp, Tv, Globe, Timer, Brain, Eye } from 'lucide-react';
+import { ExternalLink, Github, Play, Smartphone, Code, Heart, TrendingUp, Tv, Globe, Timer, Brain, Eye, BookOpen, Mail } from 'lucide-react';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -117,6 +117,66 @@ const Projects = () => {
     technologies: ['React', 'Responsive Design'],
     category: 'Productivity',
     featured: false
+  },
+  {
+    id: 9,
+    title: "VocabVault",
+    icon: <Brain size={24} />,
+    image: 'https://renanbazinin.github.io/VocabVault/logo.svg',
+    short: "Client-side NLP vocabulary analyzer that ranks difficult words from uploaded books against a 50,000-word frequency dictionary.",
+    story: "VocabVault is a serverless React application for readers and language learners. Users upload a plain-text book, and the app extracts challenging vocabulary, filters proper nouns, and ranks word difficulty locally in the browser using a 50,000-word frequency dictionary. The project highlights practical NLP, offline-friendly design, and privacy-preserving client-side processing without a backend.",
+    link: 'https://renanbazinin.github.io/VocabVault',
+    linkGithub: 'https://github.com/renanbazinin/VocabVault',
+    technologies: ['React', 'TypeScript', 'NLP', 'Vite', 'Client-Side Processing'],
+    category: 'AI/ML',
+    featured: true
+  },
+  {
+    id: 10,
+    title: "ragOS",
+    icon: <BookOpen size={24} />,
+    image: 'https://renanbazinin.github.io/ragOS/logo.svg',
+    short: "RAG-powered Operating Systems study tool with semantic search, AI-generated practice questions, and an interactive React interface.",
+    story: "ragOS helps students prepare for Operating Systems exams by combining past-exam ingestion, semantic search, and generated practice. The backend uses Python, FastAPI, ChromaDB, SentenceTransformers, and Google Gemini to search real questions and generate new ones by topic, difficulty, year, and question type. The React 19 and TypeScript frontend provides practice mode, filtering, shuffling, and mixed-question sessions.",
+    link: 'https://renanbazinin.github.io/ragOS',
+    linkGithub: 'https://github.com/renanbazinin/ragOS',
+    technologies: ['Python', 'FastAPI', 'ChromaDB', 'SentenceTransformers', 'Google Gemini', 'React', 'TypeScript'],
+    category: 'AI/ML',
+    featured: true,
+    research: true
+  },
+  {
+    id: 11,
+    title: "Interactive Brokers Trading Bot",
+    icon: <TrendingUp size={24} />,
+    short: "Fee-aware automated trading engine for Interactive Brokers with paper/live modes, technical strategies, market-data fallbacks, and Telegram alerts.",
+    story: "This Python trading engine connects to Interactive Brokers through both the modern Web API gateway and legacy TWS/IB Gateway socket flow. It supports paper and live trading modes, RSI and Bollinger Band strategies, fee-aware execution, extended-hours trading, YFinance and AlphaVantage market-data fallbacks, Docker Compose deployment, and Telegram notifications for live trade updates.",
+    linkGithub: 'https://github.com/renanbazinin/ib-trading-engine',
+    technologies: ['Python', 'IBAPI', 'Docker', 'YFinance', 'AlphaVantage', 'Telegram API'],
+    category: 'Finance',
+    featured: false
+  },
+  {
+    id: 12,
+    title: "MailSaver-Bot",
+    icon: <Mail size={24} />,
+    short: "Python Gmail downloader that archives large emails, saves attachments, labels processed mail, and exposes a GUI with real-time logs.",
+    story: "MailSaver-Bot is a practical automation tool for keeping a Gmail inbox clean without losing important large attachments. It downloads large emails, saves attachments locally, labels messages for manual deletion, and provides a graphical interface for configuration and real-time logs.",
+    linkGithub: 'https://github.com/renanbazinin/MailSaver-Bot',
+    technologies: ['Python', 'Gmail API', 'Tkinter', 'Automation'],
+    category: 'Automation',
+    featured: false
+  },
+  {
+    id: 13,
+    title: "Nand2Tetris Tooling",
+    icon: <Code size={24} />,
+    short: "Computer-systems learning suite covering HDL, assembly, VM, compiler, and OS work, plus a Node/TypeScript grader fork.",
+    story: "This project family follows the Nand2Tetris path from NAND gates to a working computer stack: hardware description, assembly, VM translation, compiler work, and operating-system components. The related Node/TypeScript grader adapts the official tooling into automated checks, showing both low-level systems understanding and developer-tooling work.",
+    linkGithub: 'https://github.com/renanbazinin/n2tgrader-node',
+    technologies: ['HDL', 'Assembly', 'TypeScript', 'Node.js', 'Compiler Design'],
+    category: 'Systems',
+    featured: false
   }
   ];
 
@@ -126,6 +186,8 @@ const Projects = () => {
   const filteredProjects = selectedCategory === 'All'
     ? projects
     : projects.filter(p => p.category === selectedCategory);
+  const featuredProjects = filteredProjects.filter(p => p.featured);
+  const otherProjects = filteredProjects.filter(p => !p.featured);
 
   const openProjectModal = (project) => {
     setSelectedProject(project);
@@ -134,6 +196,34 @@ const Projects = () => {
   const closeProjectModal = () => {
     setSelectedProject(null);
   };
+
+  const handleProjectKeyDown = (event, project) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openProjectModal(project);
+    }
+  };
+
+  useEffect(() => {
+    if (!selectedProject) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        closeProjectModal();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedProject]);
 
   // Mobile responsive styles
   const mobileStyles = `
@@ -205,7 +295,7 @@ const Projects = () => {
   `;
 
   // Add styles to head
-  React.useEffect(() => {
+  useEffect(() => {
     const styleElement = document.createElement('style');
     styleElement.textContent = mobileStyles;
     document.head.appendChild(styleElement);
@@ -213,7 +303,7 @@ const Projects = () => {
     return () => {
       document.head.removeChild(styleElement);
     };
-  }, []);
+  }, [mobileStyles]);
 
   return (
     <div className="section" style={{ paddingTop: '6rem' }}>
@@ -270,22 +360,26 @@ const Projects = () => {
         </motion.div>
 
         {/* Featured Projects */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          style={{ marginBottom: '4rem' }}
-        >
-          <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: 'var(--text-primary)' }}>
-            Featured Projects
-          </h2>          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))',
-            gap: '2rem'
-          }}>
-            {filteredProjects.filter(p => p.featured).map((project, index) => (
+        {featuredProjects.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            style={{ marginBottom: '4rem' }}
+          >
+            <h2 style={{ textAlign: 'center', marginBottom: '2rem', color: 'var(--text-primary)' }}>
+              Featured Projects
+            </h2>          <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(400px, 100%), 1fr))',
+              gap: '2rem'
+            }}>
+              {featuredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
+                role="button"
+                tabIndex={0}
+                aria-label={`Open details for ${project.title}`}
                 style={{
                   background: 'var(--surface-elevated)',
                   borderRadius: '1rem',
@@ -303,6 +397,7 @@ const Projects = () => {
                   transition: { duration: 0.3 }
                 }}
                 onClick={() => openProjectModal(project)}
+                onKeyDown={(event) => handleProjectKeyDown(event, project)}
               >
                 {project.image && (
                   <div style={{
@@ -369,17 +464,19 @@ const Projects = () => {
                       </span>
                     ))}
                   </div>                    <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }} className="project-buttons">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                      style={{ fontSize: '0.875rem', padding: '0.5rem 1rem' }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
-                      View Live
-                    </a>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary"
+                        style={{ fontSize: '0.875rem', padding: '0.5rem 1rem' }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
+                        View Live
+                      </a>
+                    )}
 
                     {project.linkGithub && (
                       <a
@@ -444,12 +541,13 @@ const Projects = () => {
                   </div>
                 </div>
               </motion.div>
-            ))}
-          </div>
-        </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
 
         {/* Other Projects */}
-        {filteredProjects.filter(p => !p.featured).length > 0 && (
+        {otherProjects.length > 0 && (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -462,9 +560,12 @@ const Projects = () => {
               gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))',
               gap: '1.5rem'
             }}>
-              {filteredProjects.filter(p => !p.featured).map((project, index) => (
+              {otherProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Open details for ${project.title}`}
                   style={{
                     background: 'var(--surface-elevated)',
                     padding: '1.5rem',
@@ -482,6 +583,7 @@ const Projects = () => {
                     transition: { duration: 0.3 }
                   }}
                   onClick={() => openProjectModal(project)}
+                  onKeyDown={(event) => handleProjectKeyDown(event, project)}
                 >
                   <div style={{
                     display: 'flex',
@@ -535,17 +637,19 @@ const Projects = () => {
                     ))}
                   </div>
                   <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }} className="project-buttons">
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                      style={{ fontSize: '0.875rem', padding: '0.5rem 1rem', flex: '1' }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
-                      View Project
-                    </a>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary"
+                        style={{ fontSize: '0.875rem', padding: '0.5rem 1rem', flex: '1' }}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
+                        View Project
+                      </a>
+                    )}
 
                     {project.linkGithub && (
                       <a
@@ -586,7 +690,12 @@ const Projects = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeProjectModal}
+            role="presentation"
           >            <motion.div
+            className="project-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="project-modal-title"
             style={{
               background: 'var(--surface-elevated)',
               borderRadius: '1rem',
@@ -618,7 +727,7 @@ const Projects = () => {
                 ×
               </button>
 
-              <h2 style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>
+              <h2 id="project-modal-title" style={{ marginBottom: '1rem', color: 'var(--text-primary)' }}>
                 {selectedProject.title}
               </h2>
 
@@ -666,15 +775,17 @@ const Projects = () => {
                   </span>
                 ))}
               </div>                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <a
-                  href={selectedProject.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                >
-                  <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
-                  View Live
-                </a>
+                {selectedProject.link && (
+                  <a
+                    href={selectedProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
+                    <ExternalLink size={16} style={{ marginRight: '0.5rem' }} />
+                    View Live
+                  </a>
+                )}
 
                 {selectedProject.linkGithub && (
                   <a
