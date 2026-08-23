@@ -7,16 +7,15 @@ const AboutMe = () => {
     'High-level Programming Languages': [
       'Java',
       'C++',
-      'Python (100 score in 5 Point software engineering project)'
+      'Python — NumPy, PyTorch, Flask, FastAPI, ONNX Runtime'
     ],
     'Web Development': [
-      'Advanced JavaScript (Async programming and callback functions)',
-      'Node.js, React, MongoDB, and Express'
+      'JavaScript / TypeScript — React 19, Node.js, Express, Vite',
+      'MongoDB, PostgreSQL, and REST API development'
     ],
-    'General': [
-      'Excel (including VBA)',
-      'Hebrew - Native language',
-      'English - Very good. Scored 142/150 in the psychometry exam'
+    'Spoken Languages': [
+      'Hebrew — native',
+      'English — professional working proficiency'
     ]
   };
 
@@ -78,7 +77,7 @@ const AboutMe = () => {
           >
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
               <User size={28} style={{ color: 'var(--primary-color)', marginRight: '0.75rem' }} />
-              <h3 style={{ color: 'var(--text-primary)', marginBottom: 0 }}>Points about me</h3>
+              <h3 style={{ color: 'var(--text-primary)', marginBottom: 0 }}>Background</h3>
             </div>
             
             <ul style={{ listStyle: 'none', padding: 0 }}>
