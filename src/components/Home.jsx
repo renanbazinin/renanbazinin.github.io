@@ -38,7 +38,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Computer Science Student & Full-Stack Developer
+            Computer Science B.Sc. & Full-Stack Developer
           </motion.p>
           
           <motion.p 

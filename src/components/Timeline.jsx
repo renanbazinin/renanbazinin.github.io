@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Award, Briefcase, GraduationCap, Heart, Star, Users } from 'lucide-react';
+import { Calendar, MapPin, Award, Briefcase, GraduationCap, Heart, Star } from 'lucide-react';
 
 const Timeline = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -69,16 +69,16 @@ const Timeline = () => {
       color: 'var(--primary-color)'
     },
     {
-      year: '2022 – Present',
-      title: 'Computer Science Studies',
+      year: '2022 – 2026',
+      title: 'B.Sc. in Computer Science',
       subtitle: 'MTA (Academic Tel Aviv Yafo)',
-      icon: <Users size={20} />,
-      description: 'Currently pursuing my degree in Computer Science.',
+      icon: <GraduationCap size={20} />,
+      description: 'Completed my B.Sc. in Computer Science.',
       details: [
-        'Third year at MTA',
-        'Focusing on algorithms and data structures',
-        'Exploring web development and data science',
-        'Building innovative projects'
+        'Graduated from MTA (Academic Tel Aviv Yafo)',
+        'Focused on algorithms and data structures',
+        'Explored web development and data science',
+        'Built innovative projects'
       ],
       color: 'var(--secondary-color)'
     },

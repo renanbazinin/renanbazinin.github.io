@@ -39,7 +39,7 @@ const AboutMe = () => {
     {
       icon: <Star size={24} />,
       title: 'Academic Achievement',
-      description: 'Third year at MTA (Academic Tel Aviv Yafo) in Computer Science'
+      description: 'B.Sc. in Computer Science from MTA (Academic Tel Aviv Yafo)'
     }
   ];
 
@@ -55,7 +55,7 @@ const AboutMe = () => {
         >
           <h1 className="section-title gradient-text">Renan Bazinin</h1>
           <p className="section-subtitle" style={{ fontSize: '1.3rem', marginBottom: '2rem' }}>
-            I'm a student of computer science. I have always had a passion for computers.
+            I'm a computer science graduate (B.Sc.). I have always had a passion for computers.
           </p>
         </motion.div>        {/* Main Content Grid */}
         <div style={{ 
@@ -89,7 +89,7 @@ const AboutMe = () => {
                 In high school I participated in many Hackathons - second prize in one of them.
               </li>
               <li style={{ marginBottom: '1rem', paddingLeft: '1rem', borderLeft: '3px solid var(--primary-color)', color: 'var(--text-secondary)' }}>
-                I am still open to everything in this field. I like Web-Development, Algorithmics and hope to gain enough mathematical theory to explore the data science world.
+                I am still open to everything in this field. I like Web-Development, Algorithmics and the mathematical theory behind the data science world.
               </li>
               <li style={{ marginBottom: '1rem', paddingLeft: '1rem', borderLeft: '3px solid var(--primary-color)', color: 'var(--text-secondary)' }}>
                 My project in software engineering was - "Discover the author of an anonymous book by data of many other books and authors", inspired by this{' '}
@@ -103,7 +103,7 @@ const AboutMe = () => {
                 </a>.
               </li>
               <li style={{ paddingLeft: '1rem', borderLeft: '3px solid var(--primary-color)', color: 'var(--text-secondary)' }}>
-                Third year at MTA (Academic Tel Aviv Yafo).
+                B.Sc. in Computer Science from MTA (Academic Tel Aviv Yafo).
               </li>
             </ul>
           </motion.div>          {/* Skills Section */}
