@@ -57,6 +57,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/timeline" element={<Timeline />} />
             <Route path="/about" element={<AboutMe />} />
+            <Route path="*" element={<Home />} />
           </Routes>
         </motion.div>
       </main>
