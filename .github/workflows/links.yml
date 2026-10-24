@@ -1,0 +1,42 @@
+# Builds the site and checks every link in the output, so a dead demo or a moved
+# repo shows up here instead of in front of a visitor.
+name: Link check
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  push:
+    branches: [main]
+    paths: ['src/**', 'public/**', 'scripts/**', 'index.html', 'README.md']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci && npm run build
+
+      # LinkedIn and doi.org block automated requests, so they are skipped.
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --root-dir ${{ github.workspace }}/dist
+            --fallback-extensions html
+            --exclude 'linkedin\.com'
+            --exclude 'doi\.org'
+            --exclude '^https://renanbazinin\.com'
+            'dist/**/*.html' README.md
+          fail: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,6 @@
+# Also deployed to renanbazinin.github.io by the Pages workflow, where this file
+# covers every project site under renanbazinin.github.io/<repo>/. Keep it permissive.
+User-agent: *
+Allow: /
+
+Sitemap: https://renanbazinin.com/sitemap.xml
