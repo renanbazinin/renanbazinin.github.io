@@ -2,47 +2,73 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="https://i.imgur.com/dCe7uFL.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Primary Meta Tags -->
-    <title>Renan Bazinin - Full-Stack Developer</title>
-    <meta name="title" content="Renan Bazinin - Full-Stack Developer" />
-    <meta name="description" content="Full-stack developer with a B.Sc. in Computer Science from MTA. Projects, research and awards, including FocusFlow and Forktown." />
-    <meta name="keywords" content="Renan Bazinin, Full Stack Developer, React, Node.js, Python, Computer Science, B.Sc., Computer Science Graduate, Web Development, Portfolio, MTA, Israel" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1021" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)" />
+    <script>
+      // Apply a saved theme before first paint so there is no flash, and match the browser toolbar to it.
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.dataset.theme = t;
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) {
+            m.content = t === 'light' ? '#f6f8fa' : '#0b1021';
+          });
+        }
+      } catch (e) {}
+    </script>
+    <!--app-head-->
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="author" content="Renan Bazinin" />
-    
-    <!-- Open Graph / Facebook -->
+
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://renanbazinin.github.io/" />
-    <meta property="og:title" content="Renan Bazinin - Full-Stack Developer" />
-    <meta property="og:description" content="Full-stack developer with a B.Sc. in Computer Science from MTA. Projects, research and awards, including FocusFlow and Forktown." />
-    <meta property="og:image" content="https://renanbazinin.github.io/og-image.png" />
+    <meta property="og:site_name" content="Renan Bazinin" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://renanbazinin.com/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Renan Bazinin portfolio card with project icons" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://renanbazinin.github.io/" />
-    <meta property="twitter:title" content="Renan Bazinin - Full-Stack Developer" />
-    <meta property="twitter:description" content="Full-stack developer with a B.Sc. in Computer Science from MTA. Projects, research and awards, including FocusFlow and Forktown." />
-    <meta property="twitter:image" content="https://renanbazinin.github.io/og-image.png" />
-    
-    <!-- Additional Meta Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
-    <meta name="theme-color" content="#6366f1" />
+    <meta property="og:image:alt" content="Renan Bazinin: full-stack developer, AI agents, fintech. Best Poster Award at SYSTOR '25, 3 papers, Forktown with 40+ people moved in, 6 merged PRs to nand2tetris." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://renanbazinin.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Renan Bazinin: full-stack developer, AI agents, fintech. Best Poster Award at SYSTOR '25, 3 papers, Forktown with 40+ people moved in, 6 merged PRs to nand2tetris." />
     <meta name="google-site-verification" content="jDk1s6N-IOBTrNM4PV6WqMvZVyTrDHe8nv0tHPHHvaQ" />
-    
-    <!-- Preconnect to Google Fonts for better performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://renanbazinin.com/#website",
+            "url": "https://renanbazinin.com/",
+            "name": "Renan Bazinin",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://renanbazinin.com/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://renanbazinin.com/#person",
+            "name": "Renan Bazinin",
+            "url": "https://renanbazinin.com/",
+            "jobTitle": "Full-Stack Developer",
+            "alumniOf": { "@type": "CollegeOrUniversity", "name": "The Academic College of Tel Aviv-Yaffo", "alternateName": "MTA" },
+            "award": [
+              "ACM SYSTOR 2025 Best Poster Award (FocusFlow)",
+              "1st place, research and infrastructure track, MTA final-project exhibition 2025",
+              "Certificate of Excellence (Colonel's Award), IDF Medical Corps, 2019"
+            ],
+            "sameAs": ["https://github.com/renanbazinin", "https://www.linkedin.com/in/renan-bazinin"]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

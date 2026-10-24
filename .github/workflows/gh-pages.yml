@@ -1,5 +1,7 @@
-# Backup deployment. Production is Vercel (www.renanbazinin.com); this mirrors
-# every push to main onto https://renanbazinin.github.io/ as a fallback.
+# Backup deployment. Production is Vercel (renanbazinin.com); this mirrors every
+# push to main onto https://renanbazinin.github.io/ as a fallback. The build
+# prerenders one HTML file per route plus 404.html, so no SPA fallback is needed,
+# and every page's canonical tag points at renanbazinin.com.
 name: Deploy to GitHub Pages
 
 on:
@@ -33,11 +35,13 @@ jobs:
 
       - run: npm run build
 
-      # GitHub Pages has no rewrite rules, so the vercel.json catch-all to
-      # /index.html has no equivalent here. Serving the app from 404.html makes
-      # direct hits on client-side routes (/projects, /about) boot the router.
-      - name: Add SPA fallback
-        run: cp dist/index.html dist/404.html
+      # The user site must stay on renanbazinin.github.io: binding a custom domain
+      # here would take every project site under /<repo>/ with it.
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Refuse to deploy while a custom domain is bound
+        run: test "${{ steps.pages.outputs.host }}" = "renanbazinin.github.io"
 
       - uses: actions/upload-pages-artifact@v3
         with:
